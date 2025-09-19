@@ -17,6 +17,13 @@ A professional online HTML editor with WYSIWYG editing, PayPal subscriptions, an
 - **Production**: To be deployed on Railway
 - **GitHub**: https://github.com/joaoflaviojr/html-editor.git
 
+## 🚀 Railway Deployment
+
+### Environment Setup
+See [RAILWAY_ENV.md](./RAILWAY_ENV.md) for complete environment variable configuration.
+
+**Critical:** The `NEXTAUTH_SECRET` must be set in Railway environment variables for authentication to work.
+
 ## Tech Stack
 
 - **Frontend**: Next.js 15 (App Router), React, TypeScript, Tailwind CSS
