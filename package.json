@@ -44,13 +44,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "audit-ci": "^7.1.0",
-    "crypto-browserify": "^3.12.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "prettier": "^3.6.2",
-    "stream-browserify": "^3.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "util": "^0.12.5"
+    "typescript": "^5"
   }
 }

@@ -130,11 +130,10 @@ export default function SourceEditor({
         <div className="bg-gray-100 border-b border-gray-300 px-4 py-2">
           <div className="flex justify-between items-center">
             <h3 className="text-sm font-medium text-gray-700">
-              Diff View - Compare Changes
+              Diff View - Compare Changes (Simplified)
             </h3>
-            <div className="flex space-x-4 text-xs text-gray-500">
-              <span>← Original</span>
-              <span>Modified →</span>
+            <div className="text-xs text-gray-500">
+              Showing current version only - full diff coming soon
             </div>
           </div>
         </div>
@@ -142,19 +141,15 @@ export default function SourceEditor({
           height="100%"
           language="html"
           theme="vs"
-          original={originalValue}
-          modified={value}
-          onMount={handleDiffEditorDidMount}
+          value={value}
+          onChange={(newValue) => onChange(newValue || '')}
+          onMount={handleEditorDidMount}
           options={{
             readOnly: false,
             minimap: { enabled: false },
             wordWrap: 'on',
             lineNumbers: 'on',
             folding: true,
-            renderSideBySide: true,
-            ignoreTrimWhitespace: false,
-            renderIndicators: true,
-            originalEditable: false,
             automaticLayout: true,
           }}
         />
@@ -195,30 +190,10 @@ export default function SourceEditor({
           wordWrap: 'on',
           lineNumbers: 'on',
           folding: true,
-          bracketMatching: 'always',
-          autoClosingBrackets: 'always',
-          autoClosingQuotes: 'always',
-          autoIndent: 'full',
-          formatOnPaste: true,
-          formatOnType: true,
           tabSize: 2,
           insertSpaces: true,
-          detectIndentation: false,
-          trimAutoWhitespace: true,
           scrollBeyondLastLine: false,
           automaticLayout: true,
-          suggestOnTriggerCharacters: true,
-          quickSuggestions: {
-            other: true,
-            comments: false,
-            strings: true,
-          },
-          parameterHints: {
-            enabled: true,
-          },
-          hover: {
-            enabled: true,
-          },
         }}
       />
     </div>

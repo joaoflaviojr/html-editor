@@ -49,84 +49,11 @@ export default function EditorCanvas({
         gjsPluginExport,
       ],
       pluginsOpts: {
-        [gjsPresetWebpage]: {
+        'grapesjs-preset-webpage': {
           blocks: ['link-block', 'quote', 'text-basic'],
         },
-        [gjsBlocksBasic]: {},
-        [gjsPluginForms]: {},
-        [gjsPluginExport]: {},
       },
-      storageManager: false, // Disable storage manager
-      deviceManager: {
-        devices: [
-          {
-            name: 'Desktop',
-            width: '',
-          },
-          {
-            name: 'Tablet',
-            width: '768px',
-            widthMedia: '992px',
-          },
-          {
-            name: 'Mobile',
-            width: '320px',
-            widthMedia: '768px',
-          },
-        ],
-      },
-      panels: {
-        defaults: [
-          {
-            id: 'layers',
-            el: '.panel__right',
-            resizable: {
-              maxDim: 350,
-              minDim: 200,
-              tc: 0,
-              cl: 1,
-              cr: 0,
-              bc: 0,
-            },
-          },
-          {
-            id: 'styles',
-            el: '.panel__right',
-            resizable: {
-              maxDim: 350,
-              minDim: 200,
-              tc: 0,
-              cl: 1,
-              cr: 0,
-              bc: 0,
-            },
-          },
-          {
-            id: 'traits',
-            el: '.panel__right',
-            resizable: {
-              maxDim: 350,
-              minDim: 200,
-              tc: 0,
-              cl: 1,
-              cr: 0,
-              bc: 0,
-            },
-          },
-          {
-            id: 'blocks',
-            el: '.panel__left',
-            resizable: {
-              maxDim: 350,
-              minDim: 200,
-              tc: 0,
-              cl: 0,
-              cr: 1,
-              bc: 0,
-            },
-          },
-        ],
-      },
+      storageManager: false,
       blockManager: {
         appendTo: '.blocks-container',
       },

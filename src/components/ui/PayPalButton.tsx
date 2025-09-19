@@ -39,6 +39,11 @@ export default function PayPalButton({
 
         if (!paypal || !mounted) return
 
+        // Ensure PayPal SDK is properly loaded and Buttons function exists
+        if (!paypal.Buttons) {
+          throw new Error('PayPal SDK not properly initialized')
+        }
+
         if (paypalRef.current) {
           // Clear any existing buttons
           paypalRef.current.innerHTML = ''

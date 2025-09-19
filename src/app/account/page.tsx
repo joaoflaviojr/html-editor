@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 
 interface SubscriptionInfo {
   status: 'FREE' | 'PRO'
@@ -17,7 +17,7 @@ interface SubscriptionInfo {
   isPro: boolean
 }
 
-export default function Account() {
+function AccountContent() {
   const { data: session } = useSession()
   const searchParams = useSearchParams()
   const [subscriptionInfo, setSubscriptionInfo] = useState<SubscriptionInfo | null>(null)
@@ -262,5 +262,22 @@ export default function Account() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Account() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading account...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <AccountContent />
+    </Suspense>
   )
 }

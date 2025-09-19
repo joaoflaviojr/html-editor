@@ -59,7 +59,7 @@ export function exportHTML(
     // Final sanitization
     const config = createSanitizationConfig(options)
     if (typeof window !== 'undefined') {
-      finalHTML = DOMPurify.sanitize(finalHTML, config)
+      finalHTML = String(DOMPurify.sanitize(finalHTML, config))
     }
     
     return finalHTML

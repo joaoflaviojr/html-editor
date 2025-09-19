@@ -85,7 +85,7 @@ export function sanitizeHTML(
   
   // Create a clean version for browser environment
   if (typeof window !== 'undefined') {
-    return DOMPurify.sanitize(htmlContent, config)
+    return String(DOMPurify.sanitize(htmlContent, config))
   }
   
   // For server-side, we'll need to use a server-safe version

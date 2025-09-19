@@ -1,6 +1,6 @@
 'use client'
 
-import { loadScript } from '@paypal/paypal-js'
+import { loadScript, PayPalNamespace } from '@paypal/paypal-js'
 
 export interface PayPalConfig {
   clientId: string
@@ -8,7 +8,7 @@ export interface PayPalConfig {
   intent?: string
 }
 
-export async function initPayPal(config: PayPalConfig) {
+export async function initPayPal(config: PayPalConfig): Promise<PayPalNamespace | null> {
   try {
     const paypal = await loadScript({
       clientId: config.clientId,
@@ -17,6 +17,10 @@ export async function initPayPal(config: PayPalConfig) {
       intent: config.intent || 'subscription',
       vault: true,
     })
+    
+    if (!paypal) {
+      throw new Error('PayPal SDK failed to load')
+    }
     
     return paypal
   } catch (error) {
